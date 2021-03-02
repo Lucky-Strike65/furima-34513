@@ -26,11 +26,10 @@
 | name        | string      | null: false                  |
 | price       | integer     | null: false                  |
 | category_id | integer     | null: false                  |
-| brand       | string      | null: false                  |
-| condition   | string      | null: false                  |
-| user        | references  | null: false, foreign_key     |
-| burden      | string      | null: false                  |
-| source      | string      | null: false                  |
+| condition_id| string      | null: false                  |
+| user        | references  | null: false,foreign_key: true|
+| burden_id   | integer     | null: false                  |
+| source_id   | integer     | null: false                  |
 
 
 ### Association
@@ -40,10 +39,10 @@
 
 ## ordersテーブル
 
-| Column    | Type        | Options                      |
-|-----------|-------------|------------------------------|
-| item_id   | references  | null: false, foreign_key     |
-| user_id   | references  | null: false, foreign_key     |
+| Column    | Type        | Options                        |
+|-----------|-------------|--------------------------------|
+| item      | references  | null: false, foreign_key: true |
+| user      | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -56,7 +55,7 @@
 
 | Column      | Type        | Options                      |
 |-------------|-------------|------------------------------|
-| orders      | references  | null: false, foreign_key     |
+| order       | references  | null: false, foreign_key:true|
 | postcode    | string      | null: false                  |
 | city        | string      | null: false                  |
 | building    | string      |                              |
