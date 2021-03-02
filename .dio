@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-03-02T03:29:04.760Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="47S1Kjur-R8fRNRYkLVi" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-03-02T03:54:23.920Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="DtUBSlThEYdwTJ82Pif1" version="14.2.4" type="embed">
     <diagram id="pvb1CP0x8W1O0pVViHa0" name="ページ1">
-        <mxGraphModel dx="241" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="215" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -37,7 +37,7 @@
                     <mxGeometry y="266" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="317" value="itemsテーブル（商品）" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="560" y="402" width="210" height="266" as="geometry"/>
+                    <mxGeometry x="560" y="402" width="210" height="296" as="geometry"/>
                 </mxCell>
                 <mxCell id="321" value="item" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="317" vertex="1">
                     <mxGeometry y="26" width="210" height="30" as="geometry"/>
@@ -62,6 +62,9 @@
                 </mxCell>
                 <mxCell id="331" value="source（発送元）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="317" vertex="1">
                     <mxGeometry y="236" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="397" value="berden（配送料負担）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="317">
+                    <mxGeometry y="266" width="210" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="334" value="orders（購入注文）" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="100" y="720" width="160" height="146" as="geometry"/>
