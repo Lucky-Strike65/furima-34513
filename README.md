@@ -6,8 +6,7 @@
 |-----------------------|---------|-------------|
 | nickname              | string  | null: false |
 | email                 | string  | null: false |
-| password              | string  | null: false |
-| password_confirmation | string  | null: false |
+| encrypted_password    | string  | null: false |
 | first_name            | string  | null: false |
 | last_name             | string  | null: false |
 | first_name_kana       | string  | null: false |
@@ -22,22 +21,24 @@
 
 ## itemsテーブル
 
-| Column    | Type        | Options                      |
-|-----------|-------------|------------------------------|
-| item      | string      | null: false                  |
-| price     | string      | null: false                  |
-| category  |             | null: false                  |
-| brand     |             | null: false                  |
-| condition |             | null: false                  |
-| user_id   | references  | null: false, foreign_key     |
-| burden    |             | null: false                  |
-| source    |             | null: false                  |
+| Column      | Type        | Options                      |
+|-------------|-------------|------------------------------|
+| name        | string      | null: false                  |
+| price       | string      | null: false                  |
+| category_id | integer     | null: false                  |
+| brand       |             | null: false                  |
+| condition   |             | null: false                  |
+| user_id     | references  | null: false, foreign_key     |
+| burden      |             | null: false                  |
+| source      |             | null: false                  |
+| order_id    | references  | null: false, foreign_key     |
+| image       |             | null: false                  |
 
 
 ### Association
 
 - belongs_to :user
-- belongs_to :order
+- has_one :order
 
 ## ordersテーブル
 
@@ -51,7 +52,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 
 ## addressテーブル
@@ -59,11 +60,11 @@
 | Column      | Type        | Options                      |
 |-------------|-------------|------------------------------|
 | orders_id   | references  | null: false, foreign_key     |
-| postcode    | integer     | null: false                  |
+| postcode    | string      | null: false                  |
 | city        | string      | null: false                  |
 | building    | string      |                              |
-| phone_number| integer     | null: false                  |
+| phone_number| string      | null: false                  |
 
 ### Association
 
-- belongs_to :orders 
+- belongs_to :order
