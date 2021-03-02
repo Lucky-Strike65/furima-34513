@@ -24,15 +24,13 @@
 | Column      | Type        | Options                      |
 |-------------|-------------|------------------------------|
 | name        | string      | null: false                  |
-| price       | string      | null: false                  |
+| price       | integer     | null: false                  |
 | category_id | integer     | null: false                  |
-| brand       |             | null: false                  |
-| condition   |             | null: false                  |
-| user_id     | references  | null: false, foreign_key     |
-| burden      |             | null: false                  |
-| source      |             | null: false                  |
-| order_id    | references  | null: false, foreign_key     |
-| image       |             | null: false                  |
+| brand       | string      | null: false                  |
+| condition   | string      | null: false                  |
+| user        | references  | null: false, foreign_key     |
+| burden      | string      | null: false                  |
+| source      | string      | null: false                  |
 
 
 ### Association
@@ -46,7 +44,6 @@
 |-----------|-------------|------------------------------|
 | item_id   | references  | null: false, foreign_key     |
 | user_id   | references  | null: false, foreign_key     |
-| address_id| references  | null: false, foreign_key     |
 
 ### Association
 
@@ -59,7 +56,7 @@
 
 | Column      | Type        | Options                      |
 |-------------|-------------|------------------------------|
-| orders_id   | references  | null: false, foreign_key     |
+| orders      | references  | null: false, foreign_key     |
 | postcode    | string      | null: false                  |
 | city        | string      | null: false                  |
 | building    | string      |                              |
