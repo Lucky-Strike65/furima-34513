@@ -31,6 +31,7 @@
 | burden_id       | integer     | null: false                  |
 | source_id       | integer     | null: false                  |
 | days_to_ship_id | integer     | null: false                  |
+| item_description| text        | null: false                  |
 
 ### Association
 
@@ -51,7 +52,7 @@
 - has_one :address
 
 
-## addressテーブル
+## addressesテーブル
 
 | Column        | Type        | Options                      |
 |---------------|-------------|------------------------------|
