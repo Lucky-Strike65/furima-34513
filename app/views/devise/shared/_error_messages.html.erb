@@ -2,7 +2,7 @@
   <div id="error_explanation">
     <h2>
       <%= I18n.t("errors.messages.not_saved",
-                 count: ,@user.errors.count,
+                 count: @user.errors.count,
                  resource: resource.class.model_name.human.downcase)
        %>
     </h2>
