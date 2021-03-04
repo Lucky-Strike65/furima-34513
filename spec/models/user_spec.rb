@@ -73,8 +73,13 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("First name can't be blank")
       end
-      it "first_nameが英数字なら登録できない" do
-        @user.first_name = 'abc111'
+      it "first_nameが英字か含まれると登録できない" do
+        @user.first_name = '名前a'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name は全角ひらがな、全角カタカナ、漢字で入力して下さい")
+      end
+      it "first_nameが数字か含まれると登録できない" do
+        @user.first_name = '名前１２３'
         @user.valid?
         expect(@user.errors.full_messages).to include("First name は全角ひらがな、全角カタカナ、漢字で入力して下さい")
       end
@@ -83,8 +88,13 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name can't be blank")
       end
-      it "last_nameが英数字なら登録できない" do
-        @user.last_name = 'abc111'
+      it "last_nameが英字が含まれると登録できない" do
+        @user.last_name = '名前abc'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name は全角ひらがな、全角カタカナ、漢字で入力して下さい")
+      end
+      it "last_nameが数字が含まれると登録できない" do
+        @user.last_name = '名前123'
         @user.valid?
         expect(@user.errors.full_messages).to include("Last name は全角ひらがな、全角カタカナ、漢字で入力して下さい")
       end
