@@ -4,6 +4,8 @@ window.addEventListener('load',() => {
     const inputValue = priceInput.value;
     const addTaxPrice = document.getElementById("add-tax-price");
     const addProfit = document.getElementById("profit");
-    
+    const tax = Math.floor(inputValue*0.1)
+    addTaxPrice.innerHTML = Math.floor(tax)
+    addProfit.innerHTML = Math.floor(inputValue - tax)
   })
 });
