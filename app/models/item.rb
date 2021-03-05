@@ -1,21 +1,23 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  
   belongs_to :user
   has_one    :order
-  has__one_attached :image
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :category,     numericality: { other_than: 1 }
-  belongs_to :condition,    numericality: { other_than: 1 }
-  belongs_to :sorce,        numericality: { other_than: 1 }
-  belongs_to :burden,       numericality: { other_than: 1 }
-  belongs_to :days_to_ship, numericality: { other_than: 1 }
+  has_one_attached :image
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :source
+  belongs_to :burden
+  belongs_to :days_to_ship
 
-  with_options presence: ture do
+  with_options presence: true do
     validates :name
     validates :price
-    validates :category_id
-    validates :burden_id
-    validates :source_id
-    validates :days_to_ship_id
+    validates :category_id,      numericality: { other_than: 1 }
+    validates :burden_id,        numericality: { other_than: 1 }
+    validates :source_id,        numericality: { other_than: 0 }
+    validates :days_to_ship_id,  numericality: { other_than: 1 }
     validates :item_description
+    validates :condition_id,        numericality: { other_than: 1 }
   end
 end
