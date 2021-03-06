@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+         
+  has_many :items
+  # has_many :orders
+
   with_options presence: true do
     validates :nickname
     validates :first_name, format:{with: /\A[ぁ-んァ-ヶ一-龥々]+\z/,message:"は全角ひらがな、全角カタカナ、漢字で入力して下さい"}
