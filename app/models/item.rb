@@ -11,9 +11,10 @@ class Item < ApplicationRecord
   belongs_to :days_to_ship
 
   with_options presence: true do
+    validates :image
     validates :name
     validates :item_description
-    validates :price, numericality: { other_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999} do
+    validates :price, numericality: { other_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
     with_options numericality: {other_than: 0} do
       validates :category_id
       validates :burden_id
