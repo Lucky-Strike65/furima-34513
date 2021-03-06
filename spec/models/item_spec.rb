@@ -33,29 +33,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item description can't be blank")
       end
       it 'category_idのidが０なら投稿できない' do
-        @item.category_id = ''
+        @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
       end
       it 'condition_idのidが０なら投稿できない' do
-        @item.condition_id = ''
+        @item.condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition is not a number")
+        expect(@item.errors.full_messages).to include("Condition must be other than 0")
       end
       it 'burden_idのidが0なら投稿できない' do
-        @item.burden_id = ''
+        @item.burden_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Burden is not a number")
+        expect(@item.errors.full_messages).to include("Burden must be other than 0")
       end
       it 'source_idのidが0なら投稿できない' do
-        @item.source_id = ''
+        @item.source_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Source is not a number")
+        expect(@item.errors.full_messages).to include("Source must be other than 0")
       end
       it 'days_to_ship_idのidが0なら投稿できない' do
-        @item.days_to_ship_id = ''
+        @item.days_to_ship_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Days to ship is not a number")
+        expect(@item.errors.full_messages).to include("Days to ship must be other than 0")
       end
       it 'priceが空では投稿できない' do
         @item.price = ''
@@ -73,12 +73,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
       it 'priceが299以下だと投稿できない' do
-        @item.price = '299'
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
       it 'priceが10000000以上だと投稿できない' do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
