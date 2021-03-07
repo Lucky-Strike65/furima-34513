@@ -127,7 +127,7 @@
     <ul class='item-lists'>
       <% @items.each do |item|%>
       <li class='list'>
-        <%= link_to root_path(item) do %>
+        <%= link_to '#' do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %> 
 
@@ -153,8 +153,8 @@
             </div>
           </div>
         </div>
-        <% end %>
       </li>
+      <% end %>
       <%# 商品がなければダミーの商品を表示 %>
       <% unless @items.present? %>
       <li class='list'>
@@ -173,8 +173,8 @@
           </div>
         </div>
         <% end %>
-        <% end %>
       </li>
+      <% end %>
     </ul>
   </div>
   <%# /商品一覧 %>
