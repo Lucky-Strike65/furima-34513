@@ -7,5 +7,5 @@ window.addEventListener('load',() => {
     const tax = Math.floor(inputValue*0.1)
     addTaxPrice.innerHTML = Math.floor(tax)
     addProfit.innerHTML = Math.floor(inputValue - tax)
-  })
+  });
 });
