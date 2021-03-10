@@ -29,7 +29,7 @@
 | condition_id    | integer     | null: false                  |
 | user            | references  | null: false,foreign_key: true|
 | burden_id       | integer     | null: false                  |
-| source_id       | integer     | null: false                  |
+| prefecture_id   | integer     | null: false                  |
 | days_to_ship_id | integer     | null: false                  |
 | item_description| text        | null: false                  |
 

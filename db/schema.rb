@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_100523) do
     t.string "city", null: false
     t.string "building"
     t.string "phone_number", null: false
-    t.integer "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "area", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2021_03_09_100523) do
     t.integer "category_id", null: false
     t.integer "condition_id", null: false
     t.integer "burden_id", null: false
-    t.integer "source_id", null: false
+    t.integer "prefecture_id", null: false
     t.integer "days_to_ship_id", null: false
     t.text "item_description", null: false
     t.bigint "user_id", null: false
