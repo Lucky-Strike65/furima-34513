@@ -5,9 +5,14 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order_address = OrderAddress.new
+    binding.pry
+    @order_address = OrderAddress.new(order_params)
   end
 
   private
 
+
+  def order_params
+    params.require(:order_address).permit.(:order_id,:postcode,:city,:phone_number,:prefecture_id,:area).merge(:item_id, :@item.id)
+  end
 end
