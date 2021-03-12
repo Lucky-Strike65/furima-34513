@@ -7,8 +7,9 @@ class OrderAddress
     validates :postcode, format:{with: /\d{3}-\d{4}/} 
     validates :city
     validates :phone_number,format:{with: /\A\d{11}\z/}
-    validates :prefecture_id, numericality:{other_than: 0 }
+    validates :prefecture_id, numericality:{ other_than: 0 }
     validates :area
+    validates :token
   end
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
