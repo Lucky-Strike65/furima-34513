@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '商品投稿' do
     context '商品を出品ができるとき' do
-      it 'imageとnameとitem_descriptionとcategory_idとburden_idとsource_idとpriceが存在すれば投稿できる' do
+      it 'imageとnameとitem_descriptionとcategory_idとburden_idとprefecture_idとpriceが存在すれば投稿できる' do
         expect(@item).to be_valid
       end
       it 'priceが半角数字なら登録できる' do
@@ -47,10 +47,10 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Burden must be other than 0')
       end
-      it 'source_idのidが0なら投稿できない' do
-        @item.source_id = 0
+      it 'prefecture_idのidが0なら投稿できない' do
+        @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include('Source must be other than 0')
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 0')
       end
       it 'days_to_ship_idのidが0なら投稿できない' do
         @item.days_to_ship_id = 0

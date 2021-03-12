@@ -4,12 +4,13 @@ class OrderAddress
 
   with_options presence: true do
     validates :item_id
-    validates :postcode, format:{with: /\d{3}-\d{4}/} 
+    validates :postcode, format:{with: /\A\d{3}-\d{4}\z/} 
     validates :city
     validates :phone_number,format:{with: /\A\d{11}\z/}
     validates :prefecture_id, numericality:{ other_than: 0 }
     validates :area
     validates :token
+    validates :user_id
   end
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
