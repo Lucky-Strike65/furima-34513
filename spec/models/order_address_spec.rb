@@ -67,14 +67,19 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include("Phone number is not a number")
       end
       it 'phone_numberがハイフンが入ると購入できない' do
-        @order_address.phone_number = '010-1234-1234'
+        @order_address.phone_number = '010-14-1234'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)", "Phone number is not a number")
+        expect(@order_address.errors.full_messages).to include("Phone number is not a number")
       end
-      it 'phone_numberが12桁以上だと登録できない' do
+      it 'phone_numberが12桁以上だと購入できない' do
         @order_address.phone_number = '111111111111'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end
+      it 'phone_numberが英数混合で購入できない' do
+        @order_address.phone_number = 'abc12345678'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is not a number")
       end
       it 'user_idが紐づかないと購入できない' do
         @order_address.user_id = nil
