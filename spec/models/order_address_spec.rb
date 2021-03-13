@@ -40,7 +40,7 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Prefecture must be other than 0")
       end
-      it'prefecture_idが' do
+      it'prefecture_idが空だと購入できない' do
         @order_address.prefecture_id = ''
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
