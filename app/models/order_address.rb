@@ -6,7 +6,8 @@ class OrderAddress
     validates :item_id
     validates :postcode, format:{with: /\A\d{3}-\d{4}\z/} 
     validates :city
-    validates :phone_number,format:{with: /\A\d{11}\z/}
+    validates :phone_number, length: {maximum: 11 }
+    validates :phone_number, numericality: { only_integer: true }
     validates :prefecture_id, numericality:{ other_than: 0 }
     validates :area
     validates :token

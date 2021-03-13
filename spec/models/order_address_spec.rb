@@ -40,6 +40,12 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Prefecture must be other than 0")
       end
+      it'prefecture_idが' do
+        @order_address.prefecture_id = ''
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
+      end
+
       it 'cityが空では購入できない' do
         @order_address.city = ''
         @order_address.valid?
@@ -58,12 +64,17 @@ RSpec.describe OrderAddress, type: :model do
       it 'phone_numberが全角数字なら購入できない' do
         @order_address.phone_number = '０１０１２３４１２３４'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_address.errors.full_messages).to include("Phone number is not a number")
       end
-      it 'phone_numberがハイフンが入り11文字以外になると購入できない' do
+      it 'phone_numberがハイフンが入ると購入できない' do
         @order_address.phone_number = '010-1234-1234'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)", "Phone number is not a number")
+      end
+      it 'phone_numberが12桁以上だと登録できない' do
+        @order_address.phone_number = '111111111111'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
       end
       it 'user_idが紐づかないと購入できない' do
         @order_address.user_id = nil
