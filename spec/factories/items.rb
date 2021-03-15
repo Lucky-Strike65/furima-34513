@@ -5,7 +5,7 @@ FactoryBot.define do
     category_id      { 1 }
     condition_id     { 1 }
     burden_id        { 1 }
-    source_id        { 1 }
+    prefecture_id    { 1 }
     days_to_ship_id  { 1 }
     item_description { 'あいうえお' }
     association :user

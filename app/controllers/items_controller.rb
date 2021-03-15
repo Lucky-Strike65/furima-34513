@@ -42,12 +42,12 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :category_id, :condition_id, :burden_id, :source_id, :days_to_ship_id,
+    params.require(:item).permit(:name, :price, :category_id, :condition_id, :burden_id, :prefecture_id, :days_to_ship_id,
                                  :item_description, :image).merge(user_id: current_user.id)
   end
 
   def move_to_index
-    redirect_to root_path unless @item.user.id == current_user.id
+    redirect_to root_path unless @item.user.id == current_user.id && @item.order.blank?
   end
 
   def set_item
