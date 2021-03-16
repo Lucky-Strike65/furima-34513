@@ -227,3 +227,8 @@
 .inc {
   font-size: 13px;
 }
+
+#preview{
+  height: 250px;
+  width: 250px;
+}
