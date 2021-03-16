@@ -7,7 +7,7 @@ class OrderAddress
     validates :city
     validates :phone_number, length: {maximum: 11 }
     validates :phone_number, numericality: { only_integer: true }
-    validates :prefecture_id, numericality:{ other_than: 0 }
+    validates :prefecture_id, numericality:{ other_than: 0 ,message: 'は---以外を選択してください'}
     validates :area
     validates :token
     validates :user_id
@@ -17,5 +17,4 @@ class OrderAddress
     order = Order.create(item_id: item_id, user_id: user_id)
     Address.create(postcode: postcode, city: city, building: building, phone_number: phone_number, prefecture_id: prefecture_id, area: area, order_id: order.id)
   end
-
 end
