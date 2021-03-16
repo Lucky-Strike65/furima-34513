@@ -10,6 +10,8 @@ class OrderAddress
     validates :prefecture_id, numericality:{ other_than: 0 }
     validates :area
     validates :token
+    validates :user_id
+    validates :item_id
   end
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
