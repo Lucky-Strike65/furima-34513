@@ -3,7 +3,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one    :order
-  has_one_attached :image
+  has_many_attached :images
   belongs_to :category
   belongs_to :condition
   belongs_to :prefecture
@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   belongs_to :days_to_ship
 
   with_options presence: true do
-    validates :image
+    validates :images
     validates :name
     validates :item_description
     validates :price, numericality: { other_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
