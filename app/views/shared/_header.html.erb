@@ -9,9 +9,15 @@
       </button>
     </form>
   </div>
+      
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      <%= search_form_for @p, url: search_items_path do |f|%>
+        <%= f.label :name_eq, 'カテゴリー',class:"search-form" %>
+        <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, include_blank: 'カテゴリー検索', class:"search-btn"%>
+      <%= f.submit '検索'%>
+      <% end %>
+      <%# <li><%= link_to 'カテゴリー', "#", class: "category-list" </li>  %>
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
     <ul class='lists-right'>
