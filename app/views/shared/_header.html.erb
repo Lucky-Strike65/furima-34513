@@ -9,14 +9,20 @@
       </button>
     </form>
   </div>
+      
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
+      <%= search_form_for @p, url: search_items_path do |f|%>
+        <% f.label :name_eq, 'カテゴリー',class:"search-form" %>
+        <%= f.collection_select :category_id_eq, Category.where.not(id: 0), :id, :name, include_blank: 'カテゴリー検索', class:"category-form"%>
+      <%= f.submit '検索', class: ""%>
+      <% end %>
+      <%# <li><%= link_to 'カテゴリー', "#", class: "category-list" </li>  %>
+      <%# <li><%= link_to 'ブランド', "#", class: "brand-list" %><%#<</li> %>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, "/users/#{current_user.id}", class: "user-nickname"%> </li> 
+      <li><%= link_to current_user.nickname, "#", class: "user-nickname"%> </li> 
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
       <% else %>
       <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
