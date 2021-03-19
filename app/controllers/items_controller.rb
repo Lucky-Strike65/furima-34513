@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
-  before_action :search_item, only: [:index, :search]
+  before_action :search_item, only: [:index, :search,:show]
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
@@ -22,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
@@ -41,7 +42,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @results = @p.result.includes(:category)
+    @items = @p.result
   end
 
   private
@@ -61,5 +62,6 @@ class ItemsController < ApplicationController
 
   def search_item
     @p = Item.ransack(params[:q])
+
   end
 end

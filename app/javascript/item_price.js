@@ -10,3 +10,4 @@ window.addEventListener('load',() => {
     addProfit.innerHTML = Math.floor(inputValue - tax)
   });
 });
+
