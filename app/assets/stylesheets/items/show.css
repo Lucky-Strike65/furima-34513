@@ -25,13 +25,6 @@
   font-size: 25px;
 }
 
-.item-box-img {
-  height: 300px;
-  width: 300px;
-  min-height: 300px; 
-  background-color: rgb(205, 202, 202);
-  object-fit: contain;
-}
 
 .item-price-box {
   margin: 25px 0px;
@@ -206,3 +199,22 @@
   font-size: 23px;
 }
 
+
+.item-box-main {
+  height: 350px;
+  width: 350px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
+
+.item-box-img {
+  height: 80px;
+  width: 80px;
+  min-height: 80px; 
+  object-fit: contain;
+}
+
+.item-box-img:hover {
+  opacity: 0.3;
+  color: #dddddd;
+}
