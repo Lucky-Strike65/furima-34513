@@ -62,6 +62,5 @@ class ItemsController < ApplicationController
 
   def search_item
     @p = Item.ransack(params[:q])
-
   end
 end
